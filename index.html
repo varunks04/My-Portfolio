@@ -1,0 +1,242 @@
+<!-- This is the main HTML template for the portfolio website of Varun K S -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varun K S | Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">VARUN K S</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/resume.html">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <h2 class="section-heading">ABOUT ME</h2>
+                    <hr class="divider">
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center">
+                    <div class="profile-image-container">
+                        <img src="static/varun.jpg" alt="Varun K S" class="img-fluid rounded-circle profile-image">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="about-content">
+                        <p class="lead">I'm a Passionate Software Engineer with a strong foundation in Python and expertise in data analytics, automation, and visualization. Skilled at turning raw data into actionable insights through visual storytelling and efficient workflows. Adept at using modern tech stacks to solve real-world problems and deliver scalable solutions. Always eager to learn, adapt, and contribute in fast-paced environments.</p>
+                        <div class="contact-info">
+                            <div><i class="fas fa-map-marker-alt"></i> Bangalore, India</div>
+                            <div><i class="fas fa-envelope"></i> ksvarun20044@gmail.com</div>
+                            <div><i class="fas fa-phone"></i> +91 9611581352</div>
+                            <div class="social-links mt-3">
+                                <a href="https://linkedin.com/in/varun-ks" target="_blank" class="social-icon">
+                                    <i class="fab fa-linkedin fa-2x"></i>
+                                </a>
+                                <a href="https://github.com/varunks04" target="_blank" class="social-icon">
+                                    <i class="fab fa-github fa-2x"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <h2 class="section-heading">EDUCATION</h2>
+                    <hr class="divider">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="education-card">
+                        <div class="education-header">
+                            <h3>JSS Academy of Technical Education</h3>
+                            <span class="education-date">Expected Graduation: July 2026</span>
+                        </div>
+                        <p class="education-degree">BE in Computer Science and Engineering</p>
+                        <p class="education-gpa">CGPA: 7.87 (Till 5th semester)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <h2 class="section-heading">SKILLS</h2>
+                    <hr class="divider">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-code"></i> Programming Languages</h4>
+                        <ul class="skill-list">
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>C</li>
+                            <li>C++</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-chart-line"></i> Visualization</h4>
+                        <ul class="skill-list">
+                            <li>Tableau</li>
+                            <li>Excel</li>
+                            <li>Google Sheets</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="skill-category">
+                        <h4><i class="fab fa-python"></i> Python Tools & Libraries</h4>
+                        <ul class="skill-list">
+                            <li>Pandas</li>
+                            <li>NumPy</li>
+                            <li>Matplotlib</li>
+                            <li>Seaborn</li>
+                            <li>Plotly</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-database"></i> Databases</h4>
+                        <ul class="skill-list">
+                            <li>MySQL</li>
+                            <li>SQL</li>
+                            <li>PostgreSQL</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-tools"></i> Tools & Platforms</h4>
+                        <ul class="skill-list">
+                            <li>Git</li>
+                            <li>Linux</li>
+                            <li>VS Code</li>
+                            <li>Tableau Public</li>
+                            <li>Google Workspace</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-users"></i> Soft Skills</h4>
+                        <ul class="skill-list">
+                            <li>Communication</li>
+                            <li>Negotiation</li>
+                            <li>Adaptability</li>
+                            <li>Leadership</li>
+                            <li>Teamwork</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-4">
+                    <h2 class="section-heading">CERTIFICATIONS</h2>
+                    <hr class="divider">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="certification-item mb-4">
+                        <h4>Meta Database Engineer Professional Certificate</h4>
+                        <p class="certification-provider">Meta, Virtual (Mar 2025)</p>
+                        <p>Covered SQL, Data Modeling, Indexing, Query Optimization, Python for automation, and real-world DB projects.</p>
+                    </div>
+                    <div class="certification-item mb-4">
+                        <h4>100 Days of Code: Complete Python Pro Bootcamp</h4>
+                        <p class="certification-provider">Udemy, Virtual (Mar 2025)</p>
+                        <p>Hands-on Python training including Web Development, Automation, APIs, Data Science, and ML with 100 projects.</p>
+                    </div>
+                    <div class="certification-item">
+                        <h4>Mastering Data Structures & Algorithms using C and C++</h4>
+                        <p class="certification-provider">Udemy, Virtual (Jan–Mar 2024)</p>
+                        <p>Focused on recursive problem-solving, sorting techniques, and in-depth implementation of data structures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p>&copy; 2025 Varun K S. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-links">
+                        <a href="https://linkedin.com/in/varun-ks" target="_blank" class="me-3"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/varunks04" target="_blank" class="me-3"><i class="fab fa-github"></i></a>
+                        <a href="mailto:ksvarun20044@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/script.js"></script>
+</body>
+</html> 
