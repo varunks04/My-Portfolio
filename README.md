@@ -2,6 +2,8 @@
 
 A modern, responsive personal portfolio website showcasing my skills, projects, and experience. Built with HTML, CSS, and JavaScript, this static website provides a clean and professional presentation of my work.
 
+## Deloyed 
+https://my-portfolio-delta-ebon-77.vercel.app/
 ## Features
 
 - **Responsive Design**: Fully responsive layout that works on all devices
