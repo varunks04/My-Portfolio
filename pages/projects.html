@@ -8,42 +8,374 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../static/css/style.css">
+    <style>
+        /* Global Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Ensure black text color */
+        body {
+            color: #000 !important;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        h1, h2, h3, h4, h5, h6, p, li, span {
+            color: #000 !important;
+        }
+        
+        /* Navigation Enhancements */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(33, 37, 41, 0.95) !important;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 80%;
+        }
+        
+        .navbar-brand {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand:hover {
+            transform: scale(1.05);
+            color: #8b5cf6 !important;
+        }
+        
+        /* Projects Section */
+        .projects-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            padding: 80px 0;
+        }
+        
+        .projects-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .projects-header h1 {
+            color: #1e293b !important;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .projects-header p {
+            font-size: 1.2rem;
+            color: #64748b !important;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Project Cards */
+        .project-card {
+            background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+            border-radius: 25px;
+            padding: 0;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .project-card:nth-child(odd) {
+            animation: slideInLeft 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .project-card:nth-child(even) {
+            animation: slideInRight 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.2);
+        }
+        
+        .project-header {
+            padding: 30px 30px 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .project-header h3 {
+            color: #1e293b !important;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .badge {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0) !important;
+            color: #334155 !important;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid #cbd5e1;
+        }
+        
+        .badge:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1) !important;
+            box-shadow: 0 5px 15px rgba(51, 65, 85, 0.2);
+        }
+        
+        .project-body {
+            padding: 30px;
+        }
+        
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .project-image::before {
+            content: '🚀';
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+        
+        .project-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        
+        .project-description ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+        
+        .project-description li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+        
+        .project-description li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .project-description li:hover {
+            transform: translateX(5px);
+            color: #1e293b !important;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-outline-primary {
+            border-color: #334155;
+            color: #334155 !important;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        }
+        
+        .btn-outline-primary:hover {
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            border-color: #475569;
+            color: #1e293b !important;
+        }
+        
+        .btn-outline-secondary {
+            border-color: #64748b;
+            color: #64748b !important;
+            background: linear-gradient(135deg, #fef7f0, #fdf2e9);
+        }
+        
+        .btn-outline-secondary:hover {
+            background: linear-gradient(135deg, #fdf2e9, #fcd34d);
+            border-color: #78716c;
+            color: #1c1917 !important;
+        }
+        
+        /* Status Badge */
+        .status-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white !important;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .status-badge.ongoing {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        
+        /* Footer Enhancement */
+        footer {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+        }
+        
+        .footer-links a {
+            transition: all 0.3s ease;
+            color: #94a3b8 !important;
+        }
+        
+        .footer-links a:hover {
+            transform: translateY(-2px);
+            color: #8b5cf6 !important;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .projects-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+            
+            .project-card {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="../index.html">VARUN K S</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html#education">Education</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="projects.html">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="resume.html">Resume</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation Container -->
+    <div id="navigation-container"></div>
 
     <!-- Projects Section -->
     <section class="projects-section py-5 mt-5">
@@ -174,6 +506,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/nav-simple.js"></script>
     <script src="../static/js/script.js"></script>
 </body>
 </html>
