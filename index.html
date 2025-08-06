@@ -8,6 +8,130 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        /* Technical Skills Section Styling */
+        .technical-skills {
+            background: linear-gradient(135deg, #f7f7f7 0%, #f7f7f9 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .technical-skills h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .skill-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .skill-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+        
+        .skill-card-header i {
+            font-size: 1.5rem;
+            color: #010109;
+            margin-right: 10px;
+        }
+        
+        .skill-card-header h4 {
+            color: #1e293b;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .skill-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px 10px;
+            border-radius: 12px;
+            background: #f8fafc;
+            transition: background 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            background: #e2e8f0;
+        }
+        
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            background: #6366f1;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .skill-icon.python { background: #3776ab; }
+        .skill-icon.cpp { background: #00599c; }
+        .skill-icon.c { background: #a8b9cc; }
+        .skill-icon.dsa { background: #ff6b6b; }
+        .skill-icon.oop { background: #4ecdc4; }
+        .skill-icon.os { background: #45b7d1; }
+        .skill-icon.dbms { background: #96ceb4; }
+        .skill-icon.pandas { background: #150458; }
+        .skill-icon.numpy { background: #013243; }
+        .skill-icon.matplotlib { background: #11557c; }
+        .skill-icon.seaborn { background: #444444; }
+        .skill-icon.mysql { background: #4479a1; }
+        .skill-icon.postgresql { background: #336791; }
+        .skill-icon.sqlite { background: #003b57; }
+        .skill-icon.flask { background: #000; }
+        .skill-icon.rest { background: #61dafb; }
+        .skill-icon.git { background: #f05032; }
+        .skill-icon.linux { background: #fcc624; }
+        .skill-icon.vscode { background: #007acc; }
+        .skill-icon.jupyter { background: #f37626; }
+        
+        .skill-name {
+            color: #334155;
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        
+        @media (max-width: 768px) {
+            .skill-items {
+                grid-template-columns: 1fr;
+            }
+            .technical-skills h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -107,92 +231,203 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-5">
+    <section id="skills" class="technical-skills">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center mb-4">
-                    <h2 class="section-heading">SKILLS</h2>
-                    <hr class="divider">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2>TECHNICAL SKILLS</h2>
                 </div>
             </div>
             <div class="row">
+                <!-- Programming Languages -->
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-category">
-                        <h4><i class="fas fa-code"></i> Programming Languages</h4>
-                        <ul class="skill-list">
-                            <li>C</li>
-                            <li>C++</li>
-                            <li>Python</li>
-                        </ul>
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <i class="fas fa-code"></i>
+                            <h4>Programming Languages</h4>
+                        </div>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-icon python">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <div class="skill-name">Python</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon cpp">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="skill-name">C++</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon c">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="skill-name">C</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Core CS Concepts -->
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-category">
-                        <h4><i class="fas fa-brain"></i> Core CS Concepts</h4>
-                        <ul class="skill-list">
-                            <li>Data Structures & Algorithms</li>
-                            <li>Object-Oriented Programming</li>
-                            <li>Operating Systems</li>
-                            <li>Database Management Systems</li>
-                        </ul>
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <i class="fas fa-brain"></i>
+                            <h4>Core CS Concepts</h4>
+                        </div>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-icon dsa">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div class="skill-name">Data Structures & Algorithms</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon oop">
+                                    <i class="fas fa-cubes"></i>
+                                </div>
+                                <div class="skill-name">Object Oriented Programming</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon dbms">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="skill-name">Database Management Systems</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon os">
+                                    <i class="fas fa-desktop"></i>
+                                </div>
+                                <div class="skill-name">Operating Systems</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Python Libraries & Frameworks -->
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-category">
-                        <h4><i class="fab fa-python"></i> Python Libraries & Frameworks</h4>
-                        <ul class="skill-list">
-                            <li>NumPy</li>
-                            <li>Pandas</li>
-                            <li>Matplotlib</li>
-                            <li>Seaborn</li>
-                            <li>Scikit-learn</li>
-                            <li>TensorFlow (beginner)</li>
-                        </ul>
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <i class="fab fa-python"></i>
+                            <h4>Python Libraries & Frameworks</h4>
+                        </div>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-icon pandas">
+                                    <i class="fas fa-table"></i>
+                                </div>
+                                <div class="skill-name">Pandas</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon numpy">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <div class="skill-name">NumPy</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon matplotlib">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="skill-name">Matplotlib</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon seaborn">
+                                    <i class="fas fa-chart-area"></i>
+                                </div>
+                                <div class="skill-name">Seaborn</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Databases -->
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-category">
-                        <h4><i class="fas fa-database"></i> Databases</h4>
-                        <ul class="skill-list">
-                            <li>MySQL</li>
-                            <li>PostgreSQL</li>
-                            <li>SQLite</li>
-                        </ul>
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <i class="fas fa-database"></i>
+                            <h4>Databases</h4>
+                        </div>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-icon mysql">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="skill-name">MySQL</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon postgresql">
+                                    <i class="fas fa-elephant"></i>
+                                </div>
+                                <div class="skill-name">PostgreSQL</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon sqlite">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="skill-name">SQLite</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Backend Development -->
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-category">
-                        <h4><i class="fas fa-server"></i> Backend Development</h4>
-                        <ul class="skill-list">
-                            <li>REST APIs</li>
-                            <li>Flask</li>
-                            <li>SQL integration</li>
-                        </ul>
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <i class="fas fa-server"></i>
+                            <h4>Backend Development</h4>
+                        </div>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-icon flask">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <div class="skill-name">Flask</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon rest">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </div>
+                                <div class="skill-name">REST APIs</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Tools & Platforms -->
                 <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-category">
-                        <h4><i class="fas fa-tools"></i> Tools & Platforms</h4>
-                        <ul class="skill-list">
-                            <li>Git</li>
-                            <li>GitHub</li>
-                            <li>Linux</li>
-                            <li>VS Code</li>
-                            <li>Google Colab</li>
-                            <li>Jupyter Notebook</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-category">
-                        <h4><i class="fas fa-users"></i> Soft Skills</h4>
-                        <ul class="skill-list">
-                            <li>Communication</li>
-                            <li>Negotiation</li>
-                            <li>Adaptability</li>
-                            <li>Team Collaboration</li>
-                            <li>Leadership</li>
-                        </ul>
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <i class="fas fa-tools"></i>
+                            <h4>Tools & Platforms</h4>
+                        </div>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-icon git">
+                                    <i class="fab fa-git-alt"></i>
+                                </div>
+                                <div class="skill-name">Git & GitHub</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon linux">
+                                    <i class="fab fa-linux"></i>
+                                </div>
+                                <div class="skill-name">Linux</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon vscode">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="skill-name">VS Code</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon jupyter">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="skill-name">Jupyter Notebooks</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
