@@ -9,11 +9,160 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="static/css/style.css">
     <style>
+        /* Global Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Smooth scrolling and general animations */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Enhanced Section Animations */
+        .section-heading {
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #089df4, #1f06d5);
+            border-radius: 2px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        /* About Section Enhancements */
+        .profile-image-container {
+            animation: fadeInLeft 0.8s ease-out;
+        }
+        
+        .profile-image {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 4px solid #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .about-content {
+            animation: fadeInRight 0.8s ease-out;
+        }
+        
+        .contact-info div {
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-info div:nth-child(1) { animation-delay: 0.1s; }
+        .contact-info div:nth-child(2) { animation-delay: 0.2s; }
+        .contact-info div:nth-child(3) { animation-delay: 0.3s; }
+        .contact-info div:nth-child(4) { animation-delay: 0.4s; }
+        
+        .contact-info div:hover {
+            transform: translateX(5px);
+        }
+        
+        .social-icon {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            animation: pulse 1s infinite;
+        }
+        
+        /* Education Section Enhancements */
+        .education-card {
+            animation: fadeInUp 0.8s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+        
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        
+        .education-header h3 {
+            background: linear-gradient(135deg, #0205ba, #076b7c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
         /* Technical Skills Section Styling */
         .technical-skills {
             background: linear-gradient(135deg, #f7f7f7 0%, #f7f7f9 100%);
             color: white;
             padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .technical-skills::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.1;
         }
         
         .technical-skills h2 {
@@ -23,6 +172,8 @@
             color: #000000;
             text-transform: uppercase;
             letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
         }
         
         .skill-card {
@@ -31,13 +182,40 @@
             padding: 30px 20px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             height: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
         }
         
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .skill-card:hover::before {
+            left: 100%;
+        }
+        
+        .skill-card:nth-child(1) { animation-delay: 0.1s; }
+        .skill-card:nth-child(2) { animation-delay: 0.2s; }
+        .skill-card:nth-child(3) { animation-delay: 0.3s; }
+        .skill-card:nth-child(4) { animation-delay: 0.4s; }
+        .skill-card:nth-child(5) { animation-delay: 0.5s; }
+        .skill-card:nth-child(6) { animation-delay: 0.6s; }
+        
         .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
         }
         
         .skill-card-header {
@@ -46,12 +224,33 @@
             margin-bottom: 25px;
             padding-bottom: 15px;
             border-bottom: 2px solid #f1f5f9;
+            position: relative;
+        }
+        
+        .skill-card-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #112ab8, #0e5a78);
+            transition: width 0.3s ease;
+        }
+        
+        .skill-card:hover .skill-card-header::after {
+            width: 100%;
         }
         
         .skill-card-header i {
             font-size: 1.5rem;
             color: #010109;
             margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover .skill-card-header i {
+            transform: rotate(360deg);
         }
         
         .skill-card-header h4 {
@@ -75,11 +274,30 @@
             padding: 20px 10px;
             border-radius: 12px;
             background: #f8fafc;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .skill-item:hover::before {
+            opacity: 1;
         }
         
         .skill-item:hover {
             background: #e2e8f0;
+            transform: translateY(-5px);
         }
         
         .skill-icon {
@@ -93,6 +311,14 @@
             margin-bottom: 12px;
             color: white;
             font-size: 1.2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .skill-item:hover .skill-icon {
+            transform: scale(1.1) rotateY(180deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         
         .skill-icon.python { background: #3776ab; }
@@ -121,8 +347,115 @@
             font-size: 0.9rem;
             font-weight: 500;
             line-height: 1.2;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
         }
         
+        .skill-item:hover .skill-name {
+            color: #1e293b;
+            font-weight: 600;
+        }
+        
+        /* Certifications Section Enhancements */
+        .certification-item {
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+            transition: all 0.3s ease;
+            padding: 25px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .certification-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, #0b46a4, #0f22b5);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .certification-item:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .certification-item:nth-child(1) { animation-delay: 0.1s; }
+        .certification-item:nth-child(2) { animation-delay: 0.2s; }
+        .certification-item:nth-child(3) { animation-delay: 0.3s; }
+        
+        .certification-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .certification-item h4 {
+            background: linear-gradient(135deg, #130cdc, #081eae);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
+        }
+        
+        /* Navigation Enhancements */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(33, 37, 41, 0.95) !important;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #0b0d92, #0826d0);
+            transition: width 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 80%;
+        }
+        
+        .navbar-brand {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand:hover {
+            transform: scale(1.05);
+            color: #1033b1 !important;
+        }
+        
+        /* Footer Enhancements */
+        footer {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+        }
+        
+        .footer-links a {
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            transform: translateY(-2px);
+            color: #1033b1 !important;
+        }
+        
+        /* Responsive Animations */
         @media (max-width: 768px) {
             .skill-items {
                 grid-template-columns: 1fr;
@@ -130,44 +463,20 @@
             .technical-skills h2 {
                 font-size: 2rem;
             }
+            .skill-card:hover {
+                transform: translateY(-5px) scale(1.01);
+            }
+        }
+        
+        /* Page load animation */
+        body {
+            animation: fadeInUp 0.5s ease-out;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">VARUN K S</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#education">Education</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/projects.html">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/resume.html">Resume</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation Container -->
+    <div id="navigation-container"></div>
 
     <!-- About Section -->
     <section id="about" class="py-5 mt-5">
@@ -484,6 +793,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/nav-simple.js"></script>
     <script src="static/js/script.js"></script>
 </body>
 </html> 
